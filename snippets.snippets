@@ -1,0 +1,20 @@
+
+# Snippets
+snippet sni "create snippet" b
+snippet ${1:name} "$2" $3
+$4
+${5:endsnippet}
+$0
+endsnippet
+
+# Python snippet
+snippet pysnip "python snippet" bA
+context "{'snippet': '' }"
+post_jump "snip.expand_anon(snip.context['snippet'])"
+snippet "${1:regex}" "${2:name}" ${3:r}
+\`!p
+snip.context['snippet'] = "${4:text}"
+\`
+${5:endsnippet}
+endsnippet
+

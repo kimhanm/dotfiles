@@ -1,0 +1,56 @@
+# zathurarc
+set default-bg                  "#2E3440"
+set default-fg                  "#3B4252"
+
+set statusbar-fg                "#D8DEE9"
+set statusbar-bg                "#434C5E"
+
+set inputbar-bg                 "#2E3440"
+set inputbar-fg                 "#8FBCBB"
+
+set notification-bg             "#2E3440"
+set notification-fg             "#8FBCBB"
+
+set notification-error-bg       "#2E3440"
+set notification-error-fg       "#88C0D0"
+
+set notification-warning-bg     "#2E3440"
+set notification-warning-fg     "#88C0D0"
+
+set highlight-color             "#5E81AC"
+set highlight-active-color      "#EBCB8B"
+
+set completion-bg               "#3B4252"
+set completion-fg               "#EBCB8B"
+
+set completion-highlight-fg     "#8FBCBB"
+set completion-highlight-bg     "#EBCB8B"
+
+set recolor-lightcolor          "#2E3440"
+set recolor-darkcolor           "#ECEFF4"
+
+set recolor                     "false"
+set recolor-keephue             "false"
+
+
+# Title
+set window-title-home-tilde true
+set statusbar-home-tilde true
+
+
+
+# padding
+set statusbar-h-padding 16
+set statusbar-v-padding 4
+
+# settings
+
+set zoom-step 3
+
+# key bindings
+
+map _ zoom in
+map - zoom out
+
+
+ 

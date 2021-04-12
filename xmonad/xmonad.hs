@@ -1,7 +1,9 @@
 -- Imports
 
 import System.Exit -- exitWith
+
 import XMonad
+
 import XMonad.Util.EZConfig(additionalKeysP) -- simplified keys definition
 
 import qualified Data.Map as M
@@ -56,6 +58,10 @@ ezkeys =
   , ("M-M1-<Down>" , spawn "lux -s 10%")
   , ("<XF86MonBrightnessUp>"   , spawn "lux -a 10%")
   , ("<XF86MonBrightnessDown>" , spawn "lux -s 10%")
+  , ("M-M1-S--" , spawn "amixer -q sset Master 3%+")
+  , ("M-M1--"   , spawn "amixer -q sset Master 3%-")
+  , ("<XF86AudioRaiseVolume>"  , spawn "amixer -q sset Master 3%+")
+  , ("<XF86AudioLowerVolume>"  , spawn "amixer -q sset Master 3%-")
   ]
   ++ -- View Workspace
   [ ("M-" ++ key, windows $ W.greedyView ws)

@@ -17,6 +17,7 @@ alias duh="sudo du -h --max-depth=1 | sort -hr"
 alias duah="sudo du -ah --max-depth=1 | sort -hr"
 
 alias vim="nvim"
+
 # Default Options
 alias mkdir="mkdir -p"
 
@@ -33,10 +34,15 @@ alias poweroff="sudo poweroff"
 alias shc="vim ~/.zshrc"
 alias alc="vim ~/.config/zsh/aliases"
 alias xmc="vim ~/.xmonad/xmonad.hs"
+alias pic="vim ~/.config/picom/picom.conf"
+alias tec="vim ~/.config/alacritty/alacritty.yml"
+#alias sbc="vim ~/.config/polybar/config"
+alias sbc="vim ~/kimhanm/dotfiles/xmonad/xmobarrc"
 
 # Directory Shortcuts
 alias cdr="cd /"
 alias dow="cd ~/Downloads"
 
 
-# Application Shortcuts
+# Command Shortcuts
+alias rmswp="rm ~/.local/share/nvim/swap/*"

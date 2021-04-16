@@ -1,2 +1,3 @@
-Brightness Control:
-  - Lux (AUR) (AUR)
+Brightness Control: lux (AUR)
+Compositor: picom
+Status Bar: xmobar

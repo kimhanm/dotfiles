@@ -715,7 +715,6 @@ snippet alem "alembert" w
 \square
 endsnippet
 
-
 snippet ve "vec" w
 \vec{$1}
 endsnippet
@@ -727,6 +726,19 @@ endsnippet
 snippet com "commutator" w
 [\hat{$1},\hat{$2}]
 endsnippet
+
+snippet tns "tensor" w
+\tensor{${1:\Lambda}}{${2:^\mu_\nu}}
+endsnippet
+
+snippet tens "full tensor" w
+\tensor[$1]{$2}{$3}
+endsnippet
+
+snippet gmn "g mu nu" w
+g_{${2:\mu\nu}}
+endsnippet
+
 
 
 # Calculus

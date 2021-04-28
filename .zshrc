@@ -3,8 +3,8 @@ HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
 setopt extendedglob
+bindkey -v '^?' backward-delete-char # Vim backspace over Vi backspace
 unsetopt autocd notify
-bindkey -v
 zstyle :compinstall filename '/home/hk/.zshrc'
 
 autoload -Uz compinit

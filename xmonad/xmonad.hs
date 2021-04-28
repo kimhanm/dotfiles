@@ -13,7 +13,9 @@ import XMonad.Hooks.ManageDocks (avoidStruts)
 import XMonad.Layout
 -- import XMonad.Layout.Fullscreen (fullscreenFull)
 import XMonad.Layout.Grid (Grid(..))
+import XMonad.Layout.LayoutModifier
 import XMonad.Layout.ResizableTile
+import XMonad.Layout.Spacing
 -- import XMonad.Layout.Spiral
 import XMonad.Layout.Tabbed
 
@@ -31,11 +33,14 @@ startupHook' = do
   --spawnOwnce :: String -> X ()
   spawnOnce "nitrogen --restore &"
   spawnOnce "picom &"
+  spawnOnce "clipmenud &"
   spawnOnce "/usr/bin/xmobar /home/hk/kimhanm/dotfiles/xmonad/xmobarrc"
   --spawnOnce "$HOME/.config/polybar/launch.sh &"
 
-layoutHook' = avoidStruts $ mouseResize $ 
-                    Tall 1 delta prop
+layoutHook' = avoidStruts 
+            $ mouseResize 
+            $ mySpacing 8 
+            $ Tall 1 delta prop
                 -- ||| spirals (6/7)
                 -- ||| tabbed
                 -- ||| Grid
@@ -51,15 +56,18 @@ tabConfig = def { activeColor         = "#46d9ff"
                 , inactiveBorderColor = "#282c34"
                 }
 
+mySpacing :: Integer -> l a -> XMonad.Layout.LayoutModifier.ModifiedLayout Spacing l a
+mySpacing i = spacingRaw False (Border i i i i) True (Border i i i i) True
+ 
 --layoutHook' = avoidStruts $ mouseResize $ layoutHook defaultConfig
 
 -- Programs
-terminal' :: String
 terminal' = "alacritty"
-browser' :: String
 browser' = "vivaldi-stable"
-launcher :: String
-launcher = "rofi -show run"
+launcher = "dmenu_run"
+clipboard = "clipmenu"
+filemanager = terminal' ++ " -e ranger"
+screentoclip = "escrotum -s -C"
 
 ----
 -- Appearance
@@ -94,11 +102,14 @@ modMask' = mod4Mask -- Super_L
 
 ezKeys :: [(String, X ())]
 ezKeys =
-  -- Spawning and killing
-  [ ("M-<Return>" , spawn terminal')
-  , ("M-S-q"      , kill)
+  -- Spawning and killing Programs
+  [ ("M-S-q"      , kill)
+  , ("M-<Return>" , spawn terminal')
   , ("M-w"        , spawn browser')
   , ("M-d"        , spawn launcher)
+  , ("M-c"        , spawn clipboard)
+  , ("M-e"        , spawn filemanager)
+  , ("M-S-s"      , spawn screentoclip)
 
   -- Refresh Restart Quit
   , ("M-p"      , refresh)
@@ -112,15 +123,17 @@ ezKeys =
   , ("M-k"      , windows W.focusUp)
   , ("M-S-j"    , windows W.swapDown)
   , ("M-S-k"    , windows W.swapUp)
+  -- Layout
+  , ("M-<Space>"    , sendMessage NextLayout)
+  , ("M-M1-<Right>" , incWindowSpacing 2)
+  , ("M-M1-<Left>"  , decWindowSpacing 2)
+  --  Master/Stack
   , ("M-m"      , windows W.focusMaster)
   , ("M-S-m"    , windows W.swapMaster)
-  -- Layouts
-  , ("M-<Space>", sendMessage NextLayout)
-  -- Floating Windows
+  , ("M-C-h"    , sendMessage (IncMasterN 1))
+  , ("M-C-l"    , sendMessage (IncMasterN (-1)))
+  --  Floating Windows
   , ("M-t"      , withFocused $ windows . W.sink) -- push to tile
-  -- Rquires ResizeableTall layout from
-  -- , ("M-S-j"    , sendMessage MirrorShrink)
-  -- , ("M-S-k"    , sendMessage MirrorExpand)
   -- Brightness and Sound (with lux)
   , ("M-M1-<Up>"   , spawn "lux -a 10%")
   , ("M-M1-<Down>" , spawn "lux -s 10%")

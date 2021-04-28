@@ -12,6 +12,7 @@ alias :q="exit"
 alias l="ls -h --color=auto"
 alias ll="ls -lah --color=auto"
 alias la="ls -ah --color=auto"
+alias ls="ls -h --color=auto"
 
 alias duh="sudo du -h --max-depth=1 | sort -hr"
 alias duah="sudo du -ah --max-depth=1 | sort -hr"
@@ -38,6 +39,7 @@ alias pic="vim ~/.config/picom/picom.conf"
 alias tec="vim ~/.config/alacritty/alacritty.yml"
 #alias sbc="vim ~/.config/polybar/config"
 alias sbc="vim ~/kimhanm/dotfiles/xmonad/xmobarrc"
+#alias vic="vim ~/kimhanm/dotfiles/xmonad/xmobarrc"
 
 # Directory Shortcuts
 alias cdr="cd /"
@@ -46,3 +48,4 @@ alias dow="cd ~/Downloads"
 
 # Command Shortcuts
 alias rmswp="rm ~/.local/share/nvim/swap/*"
+alias smci="sudo make clean install"

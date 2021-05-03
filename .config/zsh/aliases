@@ -49,3 +49,4 @@ alias dow="cd ~/Downloads"
 # Command Shortcuts
 alias rmswp="rm ~/.local/share/nvim/swap/*"
 alias smci="sudo make clean install"
+alias gpom="git push origin master"

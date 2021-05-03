@@ -6,9 +6,12 @@ import System.IO
 import XMonad
 
 import XMonad.Actions.MouseResize
+import XMonad.Actions.WorkspaceNames
+
 
 import XMonad.Hooks.DynamicLog
-import XMonad.Hooks.ManageDocks (avoidStruts)
+import XMonad.Hooks.ManageDocks
+-- import XMonad.Hooks.ManageDocks (avoidStruts)
 
 import XMonad.Layout
 -- import XMonad.Layout.Fullscreen (fullscreenFull)
@@ -39,11 +42,8 @@ startupHook' = do
 
 layoutHook' = avoidStruts 
             $ mouseResize 
-            $ mySpacing 8 
-            $ Tall 1 delta prop
-                -- ||| spirals (6/7)
-                -- ||| tabbed
-                -- ||| Grid
+            -- $ mySpacing 8 
+            $       Tall 1 delta prop
                 ||| Mirror (Tall 1 delta prop)
                 ||| tabbed shrinkText tabConfig
                 where
@@ -56,11 +56,20 @@ tabConfig = def { activeColor         = "#46d9ff"
                 , inactiveBorderColor = "#282c34"
                 }
 
-mySpacing :: Integer -> l a -> XMonad.Layout.LayoutModifier.ModifiedLayout Spacing l a
-mySpacing i = spacingRaw False (Border i i i i) True (Border i i i i) True
+--  mySpacing :: Integer -> l a -> XMonad.Layout.LayoutModifier.ModifiedLayout Spacing l a
+--  mySpacing i = spacingRaw False (Border i i i i) True (Border i i i i) True
  
 --layoutHook' = avoidStruts $ mouseResize $ layoutHook defaultConfig
 
+logHook' pipe = workspaceNamesPP  xmobarPP
+                { ppOutput  = hPutStrLn pipe
+                , ppTitle   = xmobarColor "green" "" . shorten 50
+                , ppCurrent = xmobarColor "blue" "" . wrap "[" "]"
+                , ppVisible = xmobarColor "#98be65" "" . shorten 50
+                , ppSep =  "<fc=#666666> <fn=1>|</fn> </fc>"
+                , ppUrgent = xmobarColor "#C45500" "" . wrap "!" "!"
+                }
+                >>= dynamicLogWithPP
 -- Programs
 terminal' = "alacritty"
 browser' = "vivaldi-stable"
@@ -124,6 +133,7 @@ ezKeys =
   , ("M-S-j"    , windows W.swapDown)
   , ("M-S-k"    , windows W.swapUp)
   -- Layout
+  , ("M-S-b"        , sendMessage ToggleStruts)
   , ("M-<Space>"    , sendMessage NextLayout)
   , ("M-M1-<Right>" , incWindowSpacing 2)
   , ("M-M1-<Left>"  , decWindowSpacing 2)
@@ -162,7 +172,7 @@ main = do
   -- xmproc <- spawnPipe "/usr/bin/xmobar /home/hk/kimhanm/dotfiles/xmonad/xmobarrc"
   -- Background
 
-  xmonad $ def { 
+  xmonad $ docks def { 
       terminal    = terminal'
     , modMask     = modMask'
     , borderWidth = borderWidth'
@@ -170,12 +180,8 @@ main = do
     , startupHook = startupHook'
     , focusedBorderColor  = focusedBorderColor'
     , normalBorderColor   = normalBorderColor'
-    , layoutHook   = layoutHook'
-    -- , logHook = dynamicLogWithPP $ xmobarPP
-                  -- { ppOutput  = hPutStrLn xmproc
-                  -- , ppCurrent = xmobarColor "blue" "" . wrap "[" "]"
-                  -- , ppTitle   = xmobarColor "green" "" . shorten 50
-                  -- }
+    , layoutHook  = layoutHook'
+    -- , logHook     = logHook' xmproc
     } `additionalKeysP` ezKeys
 
 {- 

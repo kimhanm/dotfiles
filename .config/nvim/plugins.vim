@@ -24,4 +24,4 @@ let g:vimtex_view_general_options = '-reuse-instance -forward-search @tex @line 
 let g:vimtex_view_general_options_latexmk = '-reuse-instance'
 
 " UltiSnips
-let g:UltiSnipsSnippetDirectories=[expand('$HOME/kimhanm/dotfiles/vim/UltiSnips')]
+let g:UltiSnipsSnippetDirectories=[expand('$HOME/dotfiles/.config/vim/UltiSnips')]

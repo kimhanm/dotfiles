@@ -11,7 +11,6 @@ import XMonad.Actions.WorkspaceNames
 
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
--- import XMonad.Hooks.ManageDocks (avoidStruts)
 
 import XMonad.Layout
 -- import XMonad.Layout.Fullscreen (fullscreenFull)
@@ -30,6 +29,8 @@ import qualified Data.Map as M
 import qualified XMonad.StackSet as W
 
 
+
+
 -- Hooks
 startupHook' :: X ()
 startupHook' = do
@@ -37,7 +38,6 @@ startupHook' = do
   spawnOnce "nitrogen --restore &"
   spawnOnce "picom &"
   spawnOnce "clipmenud &"
-  spawnOnce "/usr/bin/xmobar /home/hk/kimhanm/dotfiles/xmonad/xmobarrc"
   --spawnOnce "$HOME/.config/polybar/launch.sh &"
 
 layoutHook' = avoidStruts 
@@ -61,7 +61,8 @@ tabConfig = def { activeColor         = "#46d9ff"
  
 --layoutHook' = avoidStruts $ mouseResize $ layoutHook defaultConfig
 
-logHook' pipe = workspaceNamesPP  xmobarPP
+-- logHook' pipe = workspaceNamesPP  xmobarPP
+logHook' pipe = dynamicLogWithPP $ xmobarPP
                 { ppOutput  = hPutStrLn pipe
                 , ppTitle   = xmobarColor "green" "" . shorten 50
                 , ppCurrent = xmobarColor "blue" "" . wrap "[" "]"
@@ -69,14 +70,6 @@ logHook' pipe = workspaceNamesPP  xmobarPP
                 , ppSep =  "<fc=#666666> <fn=1>|</fn> </fc>"
                 , ppUrgent = xmobarColor "#C45500" "" . wrap "!" "!"
                 }
-                >>= dynamicLogWithPP
--- Programs
-terminal' = "alacritty"
-browser' = "vivaldi-stable"
-launcher = "dmenu_run"
-clipboard = "clipmenu"
-filemanager = terminal' ++ " -e ranger"
-screentoclip = "escrotum -s -C"
 
 ----
 -- Appearance
@@ -106,6 +99,14 @@ modMask' :: KeyMask
 modMask' = mod4Mask -- Super_L
 --amodMask :: KeyMask
 --amodMask = mod1Mask -- Alt
+
+-- Programs
+terminal' = "alacritty"
+browser' = "vivaldi-stable"
+launcher = "dmenu_run"
+clipboard = "clipmenu"
+filemanager = terminal' ++ " -e ranger"
+screentoclip = "escrotum -s -C"
 
 
 
@@ -169,8 +170,10 @@ ezKeys =
 main :: IO ()
 main = do
   -- spawnPipe :: MonadIO m => String -> m Handle
-  -- xmproc <- spawnPipe "/usr/bin/xmobar /home/hk/kimhanm/dotfiles/xmonad/xmobarrc"
-  -- Background
+  -- xmobar
+  xmproc <- spawnPipe "xmobar /home/hk/.xmonad/xmobarrc" 
+
+  -- statusBarPipe <- spawnPipe
 
   xmonad $ docks def { 
       terminal    = terminal'
@@ -181,7 +184,7 @@ main = do
     , focusedBorderColor  = focusedBorderColor'
     , normalBorderColor   = normalBorderColor'
     , layoutHook  = layoutHook'
-    -- , logHook     = logHook' xmproc
+    , logHook     = logHook' xmproc
     } `additionalKeysP` ezKeys
 
 {- 

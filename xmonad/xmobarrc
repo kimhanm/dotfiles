@@ -1,6 +1,6 @@
 Config {
   -- layout
-    template = "%coretemp% }{ %dynnetwork% | %battery% | %memory% | %multicpu% | %date% "
+    template = "%coretemp% }{ %StdinReader% %dynnetwork% | %battery% | %memory% | %multicpu% | %date% "
   , sepChar =  "%"   -- delineator between plugin names and straight text
   , alignSep = "}{"  -- separator between left-right alignment
   -- appearance
@@ -30,8 +30,8 @@ Config {
                       , "--high"     , "darkred"
                       ] 10
 
-       -- cpu activity monitor
-    , Run MultiCpu   [ "--template" , "Cpu: <total0>%/<total1>%"
+      -- cpu activity monitor
+    , Run MultiCpu    [ "--template" , "Cpu: <total0>%/<total1>%"
                       , "--Low"      , "50"         -- units: %
                       , "--High"     , "85"         -- units: %
                       , "--low"      , "darkgreen"
@@ -39,17 +39,20 @@ Config {
                       , "--high"     , "darkred"
                       ] 10
 
-     -- cpu core temperature monitor
-     , Run CoreTemp   [ "--template" , "Temp: <core0>°C|<core1>°C"
+      -- cpu core temperature monitor
+    , Run CoreTemp    [ "--template" , "Temp: <core0>°C|<core1>°C"
                       , "--Low"      , "70"        -- units: °C
                       , "--High"     , "80"        -- units: °C
                       , "--low"      , "darkgreen"
                       , "--normal"   , "darkorange"
                       , "--high"     , "darkred"
                       ] 50
-                       
-     -- memory usage monitor
-     , Run Memory     [ "--template" ,"Mem: <usedratio>%"
+
+      -- Display piped input
+    , Run StdinReader 
+
+      -- memory usage monitor
+    , Run Memory      [ "--template" ,"Mem: <usedratio>%"
                       , "--Low"      , "25"        -- units: %
                       , "--High"     , "90"        -- units: %
                       , "--low"      , "darkgreen"
@@ -57,8 +60,8 @@ Config {
                       , "--high"     , "darkred"
                       ] 10
 
-     -- battery monitor
-     , Run Battery    [ "--template" , "Batt: <acstatus>"
+      -- battery monitor
+    , Run Battery     [ "--template" , "Batt: <acstatus>"
                       , "--Low"      , "10"        -- units: %
                       , "--High"     , "80"        -- units: %
                       , "--low"      , "darkred"
@@ -73,8 +76,8 @@ Config {
                               , "-i"	, "<fc=#006000>Charged</fc>"
                       ] 50
 
-     -- time and date indicator 
-     --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
-     , Run Date         "<fc=#ABABAB>%F %T</fc>" "date" 10
-     ]
+    -- time and date indicator 
+    --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
+    , Run Date         "<fc=#ABABAB>%F %T</fc>" "date" 10
+    ]
   }

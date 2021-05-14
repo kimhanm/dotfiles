@@ -1,3 +1,9 @@
-Brightness Control: lux (AUR)
-Compositor: picom
-Status Bar: xmobar
+Strict dependencies
+- Status Bar: xmobar
+
+Optional dependencies
+- Brightness Control: lux (AUR)
+- Compositor: picom
+- File manager: ranger
+- Application Runner: dmenu
+- Screenshot Tools: escrotum-git (AUR)

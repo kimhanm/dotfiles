@@ -1,0 +1,10 @@
+/proc
+/sys
+/dev
+/run
+/tmp
+/root
+/srv
+/lib
+.cache
+.git

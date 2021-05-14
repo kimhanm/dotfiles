@@ -1,4 +1,32 @@
-# zathurarc
+#############
+# Behaviour #
+#############
+
+# General Settings
+set zoom-step 3
+set selection-clipboard clipboard
+
+
+# Key Bindings
+map _ zoom in
+map - zoom out
+
+
+##############
+# Appearance #
+##############
+
+# Title
+set window-title-home-tilde true
+set statusbar-home-tilde true
+
+
+# padding
+set statusbar-h-padding 16
+set statusbar-v-padding 4
+
+
+# Colors
 set default-bg                  "#2E3440"
 set default-fg                  "#3B4252"
 
@@ -33,24 +61,3 @@ set recolor                     "false"
 set recolor-keephue             "false"
 
 
-# Title
-set window-title-home-tilde true
-set statusbar-home-tilde true
-
-
-
-# padding
-set statusbar-h-padding 16
-set statusbar-v-padding 4
-
-# settings
-
-set zoom-step 3
-
-# key bindings
-
-map _ zoom in
-map - zoom out
-
-
- 

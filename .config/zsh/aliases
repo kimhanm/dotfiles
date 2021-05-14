@@ -38,8 +38,7 @@ alias xmc="vim ~/.xmonad/xmonad.hs"
 alias pic="vim ~/.config/picom/picom.conf"
 alias tec="vim ~/.config/alacritty/alacritty.yml"
 #alias sbc="vim ~/.config/polybar/config"
-alias sbc="vim ~/kimhanm/dotfiles/xmonad/xmobarrc"
-#alias vic="vim ~/kimhanm/dotfiles/xmonad/xmobarrc"
+alias sbc="vim ~/.xmonad/xmobarrc"
 
 # Directory Shortcuts
 alias cdr="cd /"

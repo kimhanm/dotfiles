@@ -554,8 +554,8 @@ snippet roo "sqrt" w
 \sqrt{$1}
 endsnippet
 
-snippet dt "det" w
-\det
+snippet det "det" w
+\det $0
 endsnippet
 
 snippet char "char" w
@@ -591,6 +591,11 @@ snippet mfk "math fraktur" w
 \mathfrak{${1:g}}
 endsnippet
 
+snippet mrm "mathroman" w
+\mathrm{$1}
+endsnippet
+
+
 
 snippet cal "mathcal" w
 \mathcal{$1}$0
@@ -609,9 +614,14 @@ snippet til "tilde" w
 \tilde{$1}$0
 endsnippet
 
-snippet dot "dot" w
+snippet dt "dot" w
 \dot{$1}$0
 endsnippet
+
+snippet ddt "ddot" w
+\ddot{$1}$0
+endsnippet
+
 
 snippet uli "underline" w
 \underline{$1}$0
@@ -730,7 +740,7 @@ snippet ve "vec" w
 endsnippet
 
 snippet hat "hat" w
-\hat{$1}
+\hat{$1}$0
 endsnippet
 
 snippet com "commutator" w

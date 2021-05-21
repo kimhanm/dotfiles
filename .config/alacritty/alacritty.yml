@@ -14,7 +14,8 @@ key_bindings:
 
 # Appearance
 #   Opacity
-background_opacity: 0.8
+#background_opacity: 0.3
+background_opacity: 0.95
 #   Color Schemes
 schemes:
   nord: &nord

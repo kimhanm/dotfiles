@@ -1,5 +1,5 @@
 Strict dependencies
-- Status Bar: xmobar
+- Status Bar: Polybar (AUR), dbus, xmonad-log (AUR)
 
 Optional dependencies
 - Brightness Control: lux (AUR)
@@ -7,3 +7,4 @@ Optional dependencies
 - File manager: ranger
 - Application Runner: dmenu
 - Screenshot Tools: escrotum-git (AUR)
+- Font: DejaVuSansMono

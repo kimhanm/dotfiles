@@ -5,7 +5,7 @@ set hidden " keeps bufers alive when abandoned, acces with :ls and :bN for N num
 set viminfo+=n$HOME/.config/vim/.viminfo
 
 filetype plugin indent on
-syntax enable
+syntax on
 
 " Behaviour
 set tabstop=2

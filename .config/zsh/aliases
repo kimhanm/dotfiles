@@ -37,15 +37,15 @@ alias alc="vim ~/.config/zsh/aliases"
 alias xmc="vim ~/.xmonad/xmonad.hs"
 alias pic="vim ~/.config/picom/picom.conf"
 alias tec="vim ~/.config/alacritty/alacritty.yml"
-#alias sbc="vim ~/.config/polybar/config"
-alias sbc="vim ~/.xmonad/xmobarrc"
+alias sbc="vim ~/.config/polybar/config"
+#alias sbc="vim ~/.xmonad/xmobarrc"
 
 # Directory Shortcuts
 alias cdr="cd /"
 alias dow="cd ~/Downloads"
 
-
 # Command Shortcuts
 alias rmswp="rm ~/.local/share/nvim/swap/*"
 alias smci="sudo make clean install"
 alias gpom="git push origin master"
+alias manpy="python manage.py"

@@ -33,7 +33,7 @@ export FZF_DEFAULT_OPTS="
 "
 
 export FZF_BASE_COMMAND='fd -I -H --ignore-file /usr/share/fzf/fzfignore'
-export FZF_DEFAULT_COMMAND="$FZF_BASE_COMMAND -t f"
+export FZF_DEFAULT_COMMAND="$FZF_BASE_COMMAND -t f -t l"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="$FZF_BASE_COMMAND -t d"
 

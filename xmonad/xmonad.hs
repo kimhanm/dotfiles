@@ -42,12 +42,13 @@ startupHook' = do
   spawnOnce "picom &"
   spawnOnce "clipmenud &"
   spawnOnce "lightlocker &"
+  spawnOnce "xmodmap ~/.Xmodmap"
   spawn     "$HOME/.config/polybar/launch.sh &"
 
 layoutHook' = avoidStruts 
             $ mouseResize 
             $     Tall 1 delta prop
-              ||| Mirror (Tall 1 delta prop)
+              -- ||| Mirror (Tall 1 delta prop)
               ||| tabbed shrinkText tabConfig
                 where
                   delta = (3/100)
@@ -72,7 +73,7 @@ tabConfig = def { activeColor         = "#46d9ff"
 logHook' :: D.Client -> PP
 logHook' dbus = def 
     { ppOutput = dbusOutput dbus 
-    , ppCurrent = wrap ("%{B" ++ magenta ++ "} ") " %{B-}"
+    , ppCurrent = wrap ("%{B" ++ blue ++ "} ") " %{B-}"
     , ppVisible = wrap ("%{B" ++ gray ++ "}") "%{B-}"
     , ppHidden = wrap " " " "
     , ppWsSep = ""
@@ -153,15 +154,16 @@ terminal' = "alacritty"
 ezKeys :: [(String, X ())]
 ezKeys =
   -- Spawning and killing Processes
-  [ ("M-S-q"      , kill)
-  , ("M-<Return>" , spawn terminal')
-  , ("M-w"        , spawn browser')
-  , ("M-d"        , spawn launcher)
-  , ("M-c"        , spawn clipboard)
-  , ("M-e"        , spawn filemanager)
-  , ("M-S-s"      , spawn screentoclip)
-  , ("M-M1-c"     , spawn ("killall " ++ compositor))
-  , ("M-M1-S-c"   , spawn compositor)
+  [ ("M-S-q"        , kill)
+  , ("M-<Return>"   , spawn terminal')
+  , ("M-w"          , spawn browser')
+  , ("M-d"          , spawn launcher)
+  , ("M-c"          , spawn clipboard)
+  , ("M-e"          , spawn filemanager)
+  , ("M-S-<Return>" , spawn "emacs")
+  , ("M-S-s"        , spawn screentoclip)
+  , ("M-M1-c"       , spawn ("killall " ++ compositor))
+  , ("M-M1-S-c"     , spawn compositor)
   -- Refresh Restart Quit
   , ("M-p"      , refresh)
   , ("M-S-p"    , restart "xmonad" True)
@@ -224,7 +226,7 @@ main = do
     -- Behaviour
     , focusFollowsMouse = False
     -- Appearance
-    , focusedBorderColor  = cyan
+    , focusedBorderColor  = blue
     , normalBorderColor   = black
     , layoutHook  = layoutHook'
     , logHook     = dynamicLogWithPP (logHook' dbus) 

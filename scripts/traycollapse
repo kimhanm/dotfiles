@@ -1,0 +1,8 @@
+#!/bin/sh
+# Place in /usr/local/bin
+if pgrep -x "stalonetray" > /dev/null
+then
+  killall stalonetray
+else
+  stalonetray -c ~/.config/stalonetray/stalonetrayrc
+fi

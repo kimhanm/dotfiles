@@ -1,22 +1,37 @@
 [settings]
 screenchange-reload = true
 
-[bar/top-bar]
+[bar/bottom-bar]
 width = 100%
 height = 56
 padding = 2
-spacing = 1
+bottom = true
 module-margin-left=1
 module-margin-right=1
 
-;tray-position = bottom
-;tray-padding = 2
+modules-right = cpu memory
+
+tray-position = center
+tray-maxsize = 56
+tray-scale = 1
+tray-padding = 0
+
+background = ${colors.black}
+foreground = ${colors.white}
+font-0 = "DejaVuSansMono Nerd Font:size=28;10"
 
 
-modules-left    = xmonad-log
+[bar/top-bar]
+width = 100%
+height = 64
+padding-left = 1
+padding-right = 1
+module-margin-left=1
+module-margin-right=1
+
+modules-left    = xmonad-log stalonetray
 modules-center  = date
 modules-right   = network pulseaudio battery
-;modules-right   = cpu
 
 background = ${colors.black}
 foreground = ${colors.white}
@@ -42,11 +57,12 @@ exec = xmonad-log
 
 tail = true
 
-[module/cpu]
-type      = internal/cpu
-interval  = 1
 
-label     = CPU %percentage%%
+[module/stalonetray]
+type = custom/script
+exec = echo "  "
+format = <label>
+click-left = exec traycollapse
 
 [module/battery]
 type = internal/battery
@@ -57,9 +73,9 @@ poll-interval = 10
 
 format-charging = <label-charging>
 label-charging  = " %percentage%%"
-format-discharging  = <ramp-capacity> <label-discharging>
+format-discharging  = "<ramp-capacity>  <label-discharging>"
 label-discharging   = %percentage%%
-label-full = "  %percentage%%"
+label-full = " %percentage%%"
 
 ramp-capacity-0 = ""
 ramp-capacity-1 = ""
@@ -97,6 +113,22 @@ ramp-volume-1 = ""
 ramp-volume-2 = "墳"
 ramp-volume-3 = ""
 
+[module/cpu]
+type      = internal/cpu
+interval  = 1
+
+label     = CPU %percentage%%
+
+[module/memory]
+type = internal/memory
+interval = 3
+format = <label> 
+label = RAM %percentage_used%
+
+[module/empty]
+type = custom/script
+
+
 ; === Appearance ===
 
 [colors]
@@ -121,5 +153,4 @@ gray          = #4c566a
 light-red     = #bf616a
 light-green   = #a3be8c
 light-yellow  = #cc241d
-light-purple  = #d3869b
-
+light-purple  = #d3869b 

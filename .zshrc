@@ -60,4 +60,3 @@ zle     -N    xdg-fzf-widget
 bindkey "^[x" xdg-fzf-widget
 
 
-if [ -e /home/hk/.nix-profile/etc/profile.d/nix.sh ]; then . /home/hk/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

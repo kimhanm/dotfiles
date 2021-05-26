@@ -1,5 +1,6 @@
 Strict dependencies
 - Status Bar: Polybar (AUR), dbus, xmonad-log (AUR)
+- Tray: stalonetray
 
 Optional dependencies
 - Brightness Control: lux (AUR)

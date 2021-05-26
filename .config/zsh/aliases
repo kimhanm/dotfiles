@@ -34,10 +34,12 @@ alias poweroff="sudo poweroff"
 # File Shortcuts
 alias shc="vim ~/.zshrc"
 alias alc="vim ~/.config/zsh/aliases"
+alias emc="emacs -nw ~/.emacs.d/init.el"
 alias xmc="vim ~/.xmonad/xmonad.hs"
 alias pic="vim ~/.config/picom/picom.conf"
 alias tec="vim ~/.config/alacritty/alacritty.yml"
 alias sbc="vim ~/.config/polybar/config"
+alias trc="vim ~/.config/stalonetray/stalonetrayrc"
 #alias sbc="vim ~/.xmonad/xmobarrc"
 
 # Directory Shortcuts

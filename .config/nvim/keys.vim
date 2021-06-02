@@ -19,3 +19,8 @@ let g:UltiSnipsJumpForwardTrigger='<tab>'
 let g:UltiSnipsJumpBackwardTrigger='<C-k>'
 let g:UltiSnipsEditSplit='vertical'
 inoremap <C-j> <C-o>:call UltiSnips#JumpForwards()<CR>
+
+
+"   coc
+
+

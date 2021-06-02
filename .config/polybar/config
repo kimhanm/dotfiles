@@ -30,6 +30,7 @@ module-margin-left=1
 module-margin-right=1
 
 modules-left    = xmonad-log stalonetray
+;;modules-left    = workspaces stalonetray
 modules-center  = date
 modules-right   = network pulseaudio battery
 
@@ -56,6 +57,11 @@ type = custom/script
 exec = xmonad-log
 
 tail = true
+
+[module/workspaces]
+type = internal/xworkspaces
+enable-click = true
+enable-scroll = false
 
 
 [module/stalonetray]

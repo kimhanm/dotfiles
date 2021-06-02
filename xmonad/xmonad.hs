@@ -10,6 +10,7 @@ import XMonad.Actions.WorkspaceNames
 
 
 import XMonad.Hooks.DynamicLog
+-- import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.UrgencyHook
 
@@ -26,6 +27,8 @@ import XMonad.Util.EZConfig(additionalKeysP) -- Emacs style keys
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.SpawnOnce
 
+import Data.Maybe (fromJust)
+
 import qualified Codec.Binary.UTF8.String as UTF8
 import qualified DBus as D
 import qualified DBus.Client as D
@@ -41,7 +44,7 @@ startupHook' = do
   spawnOnce "nitrogen --restore &"
   spawnOnce "picom &"
   spawnOnce "clipmenud &"
-  spawnOnce "lightlocker &"
+  -- spawnOnce "lightlocker &"
   spawnOnce "xmodmap ~/.Xmodmap"
   spawn     "$HOME/.config/polybar/launch.sh &"
 
@@ -217,6 +220,7 @@ main = do
   D.requestName dbus (D.busName_ "org.xmonad.Log")
       [D.nameAllowReplacement, D.nameReplaceExisting, D.nameDoNotQueue]
 
+  -- xmonad . ewmh $ docks def { 
   xmonad $ docks def { 
       terminal    = terminal'
     , modMask     = modMask'

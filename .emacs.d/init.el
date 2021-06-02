@@ -13,12 +13,16 @@
 (setq vc-follow-symlinks t)  ;; follow symlinks by default
 ;;(load-file custom-file)
 
+
 ;; == Appearance ==
 (scroll-bar-mode -1) ;; Disable scrollbar
 (tool-bar-mode -1 )  ;; Disable toolbar
 (menu-bar-mode -1)   ;; Disable menu bar
 ;;(column-number-mode)
 (global-display-line-numbers-mode t)
+(setq linum-format "%d ")
+
+
 
 ;;(load-theme 'wombat)
 ;; Default font
@@ -34,6 +38,7 @@
 (set-face-attribute 'variable-pitch nil
                     :font "Noto Sans"
 		    :height 120)
+
 
 ;; ==== Packages ====
 ;; == Setup ==
@@ -52,6 +57,7 @@
 
 (require 'use-package)
 (setq use-package-always-ensure t)
+
 
 ;; == Tools ==
 (use-package command-log-mode) ;; C-c o
@@ -80,6 +86,7 @@
   :config
   (ivy-mode 1))
 
+
 ;; == Appearance ==
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
@@ -90,6 +97,14 @@
   :ensure t
   :config
   (load-theme 'doom-tomorrow-night t))
+
+
+;; == TeX ==
+;;(use-package auctex)
+;;(require 'tex-site)
+;;(add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+;;(setq reftex-plug-into-AUCTex t)
+;;(global-font-lock-mode t)
 
 ;; == Org Mode ==
 (defun my/org-mode-setup ()

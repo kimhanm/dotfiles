@@ -1,0 +1,53 @@
+#############
+## ALIASES ##
+#############
+
+# Basic
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+
+alias :q="exit"
+
+alias l="ls -h --color=auto"
+alias ll="ls -lah --color=auto"
+alias la="ls -ah --color=auto"
+alias ls="ls -h --color=auto"
+
+alias duh="sudo du -h --max-depth=1 | sort -hr"
+alias duah="sudo du -ah --max-depth=1 | sort -hr"
+
+#alias vim="nvim"
+
+# Default Options
+alias mkdir="mkdir -p"
+
+alias grep="grep --color=auto"
+
+alias rm="rm -i"
+alias cp="cp -i"
+alias mv="mv -i"
+
+alias reboot="sudo reboot"
+alias poweroff="sudo poweroff"
+
+# File Shortcuts
+alias shc="vim ~/.zshrc"
+alias alc="vim ~/.config/zsh/aliases"
+alias emc="emacs -nw ~/.emacs.d/init.el"
+alias xmc="vim ~/.xmonad/xmonad.hs"
+alias pic="vim ~/.config/picom/picom.conf"
+alias tec="vim ~/.config/alacritty/alacritty.yml"
+alias sbc="vim ~/.config/polybar/config"
+alias trc="vim ~/.config/stalonetray/stalonetrayrc"
+#alias sbc="vim ~/.xmonad/xmobarrc"
+
+# Directory Shortcuts
+alias cdr="cd /"
+alias dow="cd ~/Downloads"
+
+# Command Shortcuts
+alias rmswp="rm ~/.local/share/nvim/swap/*"
+alias smci="sudo make clean install"
+alias gpom="git push origin master"
+alias manpy="python manage.py"

@@ -5,13 +5,19 @@
 (use-modules (gnu) 
 	     (gnu system nss)
 	     (gnu services base)
+	     (gnu services xorg)
 	     (gnu services networking)
 	     (gnu packages emacs)
+	     (gnu packages fonts)
+	     (gnu packages gnome)
 	     (gnu packages linux)
+	     (gnu packages pulseaudio)
+	     (gnu packages shells)
+	     (gnu packages ssh)
+	     (gnu packages terminals)
 	     (gnu packages version-control)
 	     (gnu packages vim)
-	     (gnu packages pulseaudio)
-	     (gnu packages ssh)
+	     (gnu packages wm)
 	     (nongnu packages linux)
 	     (nongnu system linux-initrd))
 (use-service-modules networking ssh)
@@ -84,12 +90,17 @@
 
   ;; This is where we specify system-wide packages.
   (packages (append (list
+		     alacritty
 		     btrfs-progs
 		     emacs
+		     font-dejavu
+		     ghc-xmonad-contrib
 		     git
-		     vim
+                     nss-certs
 		     pulseaudio
-                     nss-certs) ;; for HHTPS acces
+		     vim
+		     xmonad
+		     zsh) 
                     %base-packages))
 
   ;; Allow resolution of '.local' host names with mDNS.

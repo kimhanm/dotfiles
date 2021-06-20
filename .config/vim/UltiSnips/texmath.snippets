@@ -48,6 +48,11 @@ snippet IP "IP" w
 \IP[$1]$0
 endsnippet
 
+snippet leb "Leb" w
+\Leb^{${1:n}}
+endsnippet
+
+
 snippet var "variance" w
 \variance
 endsnippet
@@ -129,12 +134,37 @@ snippet int "int" w
 \int_{${1:-\infty}}^{${2:\infty}}
 endsnippet
 
-snippet bcup "bigcup" w
+snippet bcu "bigcup" w
 \bigcup_{$1}$0
 endsnippet
 
-snippet bcap "bigcap" w
-\bigcap_{$1}
+snippet bcup "bigcup'" w
+\bigcup_{$1}$0
+endsnippet
+
+snippet bscu "bigsqcup" w
+\bigsqcup_{$1}^{$2}
+endsnippet
+
+snippet bscup "bigsqcup'" w
+\bigsqcup_{$1}^{$2}
+endsnippet
+
+
+snippet bca "bigcap" w
+\bigcap_{$1}$0
+endsnippet
+
+snippet bcap "bigcap'" w
+\bigcap_{$1}$0
+endsnippet
+
+snippet bsca "bigsqcap" w
+\bigsqcap_{$1}^{$2}
+endsnippet
+
+snippet bscap "bigsqcap'" w
+\bigsqcap_{$1}^{$2}
 endsnippet
 
 
@@ -344,6 +374,11 @@ endsnippet
 snippet iso "iso" w
 \iso
 endsnippet
+
+snippet == "equiv" w
+\equiv
+endsnippet
+
 
 snippet pt "propto" w
 \propto 
@@ -706,6 +741,11 @@ snippet hm "hom" w
 \Hom
 endsnippet
 
+snippet nat "nat" w
+\Nat
+endsnippet
+
+
 
 snippet tr "trace" w
 \trace($1)
@@ -815,6 +855,11 @@ snippet ev "ev" w
 \ev
 endsnippet
 
+snippet irr "irr" w
+\irr($1)
+endsnippet
+
+
 
 
 snippet bino "binom" w
@@ -831,6 +876,17 @@ endsnippet
 snippet gl "GL" w
 \GL
 endsnippet
+
+
+snippet sl "SL" w
+\SL
+endsnippet
+
+snippet so "SO" w
+\SO
+endsnippet
+
+
 
 snippet lie "Lie" w
 \Lie

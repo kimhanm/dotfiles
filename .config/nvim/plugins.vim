@@ -5,6 +5,7 @@ Plug 'SirVer/ultisnips'
 Plug 'lervag/vimtex'
 Plug 'tasn/vim-tsx'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'derekelkins/agda-vim'
 call plug#end()
 
 " vimtex

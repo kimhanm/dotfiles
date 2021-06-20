@@ -9,6 +9,9 @@ inoremap <A-j> <Esc>:m .+1<CR>==gi
 vnoremap <A-k> :m '<-2<CR>gv=gv
 vnoremap <A-j> :m '>+1<CR>gv=gv
 
+" Window
+map <C-J> <C-W>j<C-W>_
+map <C-K> <C-W>k<C-W>_
 
 nnoremap <leader>t : NERDTreeToggle<CR>
 

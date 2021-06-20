@@ -45,7 +45,7 @@ startupHook' = do
   spawnOnce "picom &"
   spawnOnce "clipmenud &"
   -- spawnOnce "lightlocker &"
-  spawnOnce "xmodmap ~/.Xmodmap"
+  spawnOnce "xmodmap ~/.Xmodmap &"
   spawn     "$HOME/.config/polybar/launch.sh &"
 
 layoutHook' = avoidStruts 
@@ -144,11 +144,13 @@ modMask' = mod4Mask -- Super_L
 
 -- Programs
 browser' = "vivaldi-stable"
+altbrowser = "nyxt"
 clipboard = "clipmenu"
 compositor = "picom"
 filemanager = terminal' ++ " -e ranger"
 launcher = "dmenu_run"
 screentoclip = "escrotum -s -C"
+screentopng = "escrotum -s '~/Pictures/escrotum-%Y-%m-%d-%H%M%S.png'"
 terminal' = "alacritty"
 -- lockscreen  = "light-locker-command -l"
 
@@ -160,11 +162,13 @@ ezKeys =
   [ ("M-S-q"        , kill)
   , ("M-<Return>"   , spawn terminal')
   , ("M-w"          , spawn browser')
+  , ("M-S-w"        , spawn altbrowser)
   , ("M-d"          , spawn launcher)
   , ("M-c"          , spawn clipboard)
   , ("M-e"          , spawn filemanager)
   , ("M-S-<Return>" , spawn "emacs")
   , ("M-S-s"        , spawn screentoclip)
+  , ("M-M1-S-s"     , spawn screentopng)
   , ("M-M1-c"       , spawn ("killall " ++ compositor))
   , ("M-M1-S-c"     , spawn compositor)
   -- Refresh Restart Quit

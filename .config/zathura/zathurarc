@@ -6,6 +6,7 @@
 set zoom-step 3
 set selection-clipboard clipboard
 
+set sandbox none # enable external links
 
 # Key Bindings
 map _ zoom in

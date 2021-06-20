@@ -6,5 +6,7 @@
 /root
 /srv
 /lib
+Cache
 .cache
+.cargo
 .git

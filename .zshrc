@@ -11,6 +11,15 @@ autoload -Uz compinit
 compinit
 PROMPT='[%F{yellow}%n%f@%F{cyan}%m%f %F{blue}%B%~%b%f] %# '
 
+# Coloured output
+export LESS_TERMCAP_mb=$'\e[1;32m'
+export LESS_TERMCAP_md=$'\e[1;32m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_so=$'\e[01;33m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[1;4;34m'
+
 # Source other files
 [ -f $HOME/.config/zsh/aliases ] && source $HOME/.config/zsh/aliases
 
@@ -53,7 +62,7 @@ zle     -N    vim-fzf-widget
 bindkey "^[e" vim-fzf-widget
 
 xdg-fzf-widget() {
-  files=$(eval $FZF_CTRL_T_COMMAND | fzf) && xdg-open $files
+  files=$(eval $FZF_CTRL_T_COMMAND | fzf) && xdg-open $files & disown
   zle reset-prompt
 }
 zle     -N    xdg-fzf-widget

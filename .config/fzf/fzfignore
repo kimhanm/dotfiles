@@ -10,3 +10,4 @@ Cache
 .cache
 .cargo
 .git
+.local

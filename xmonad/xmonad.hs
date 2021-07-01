@@ -56,6 +56,7 @@ layoutHook' = avoidStruts
                 where
                   delta = (3/100)
                   prop  = (1/2)
+
 -- multi montor setup
 -- toggleevga = do
   -- screencount <- LIS.countScreens
@@ -71,7 +72,6 @@ tabConfig = def { activeColor         = "#46d9ff"
                 , inactiveBorderColor = "#282c34"
                 }
 
---layoutHook' = avoidStruts $ mouseResize $ layoutHook defaultConfig
 
 logHook' :: D.Client -> PP
 logHook' dbus = def 

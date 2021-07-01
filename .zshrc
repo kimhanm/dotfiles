@@ -13,12 +13,6 @@ PROMPT='[%F{yellow}%n%f@%F{cyan}%m%f %F{blue}%B%~%b%f] %# '
 
 
 
-# Autostart X at login
-if [-z "${DISPLAY}" ] && [ "${tty}" = "/dev/tty1" ]; then
-  exec startx
-fi
-
-
 # Coloured output
 export LS_COLORS="di=1;34"
 export LESS_TERMCAP_mb=$'\e[1;32m'

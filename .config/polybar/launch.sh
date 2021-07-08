@@ -6,8 +6,9 @@ killall -q polybar
 # Wait until the processes have been shut down
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
-# Launch Polybar using default config location ~/.config/polybar/config
-polybar top-bar &     # main bar
-#polybar bottom-bar & # systray
+# Launch top bar depending on wm
+for i in {xmonad,bspwm}; do
+  pgrep $i >/dev/null && polybar $i-top-bar &
+done
 
 echo "Polybar launched..."

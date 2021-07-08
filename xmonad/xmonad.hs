@@ -41,6 +41,7 @@ import qualified XMonad.Layout.IndependentScreens as LIS
 startupHook' :: X ()
 startupHook' = do
   --spawnOwnce :: String -> X ()
+  spawnOnce "xrdb ~/.Xresources"
   spawnOnce "nitrogen --restore &"
   spawnOnce "picom &"
   spawnOnce "clipmenud &"

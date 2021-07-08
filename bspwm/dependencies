@@ -1,0 +1,8 @@
+Terminal Emulator: alacritty
+bg image setter: nitrogen
+Compositor: picom
+Clipboard: clipmenud, dmenu
+Statusbar: polybar
+Notifications: dust
+Brightness: lux (AUR)
+Screenshot: escrotum (AUR)

@@ -1,27 +1,41 @@
 [settings]
 screenchange-reload = true
 
-[bar/bottom-bar]
+;; ==== bspwm ====
+
+[bar/bspwm-top-bar]
+;; Position and Layout
 width = 100%
-height = 56
-padding = 2
-bottom = true
-module-margin-left=1
-module-margin-right=1
+height = 64
+;radius = 32
+padding-left = 1
+padding-right = 1
+module-margin-left = 1
+module-margin-right = 1
 
-modules-right = cpu memory
+;; Inter Process
+enable-ipc = true
+;override-redirect = true
+wm-restack = bspwm
 
-tray-position = center
-tray-maxsize = 56
-tray-scale = 1
-tray-padding = 0
 
+
+;; Appearance
+font-0 = "DejaVuSansMono Nerd Font:size=28;8"
 background = ${colors.black}
 foreground = ${colors.white}
-font-0 = "DejaVuSansMono Nerd Font:size=28;10"
+
+;; Modules
+modules-left = bspwm stalonetray
+modules-center = date
+modules-right = network pulseaudio battery
 
 
-[bar/top-bar]
+
+
+;; ==== XMonad ====
+
+[bar/xmonad-top-bar]
 width = 100%
 height = 64
 padding-left = 1
@@ -30,13 +44,14 @@ module-margin-left=1
 module-margin-right=1
 
 modules-left    = xmonad-log stalonetray
-;;modules-left    = workspaces stalonetray
 modules-center  = date
 modules-right   = network pulseaudio battery
 
 background = ${colors.black}
 foreground = ${colors.white}
 font-0 = "DejaVuSansMono Nerd Font:size=28;8"
+
+
 
 
 ; === Modules ===
@@ -52,16 +67,6 @@ time      = %H:%M:%S
 time-alt  = %H:%M:%S
 label     = %date% %time%
 
-[module/xmonad-log]
-type = custom/script
-exec = xmonad-log
-
-tail = true
-
-[module/workspaces]
-type = internal/xworkspaces
-enable-click = true
-enable-scroll = false
 
 
 [module/stalonetray]
@@ -84,9 +89,9 @@ label-discharging   = %percentage%%
 label-full = " %percentage%%"
 
 ramp-capacity-0 = ""
-ramp-capacity-1 = ""
-ramp-capacity-2 = ""
-ramp-capacity-3 = ""
+ramp-capacity-1 = ""
+ramp-capacity-2 = ""
+ramp-capacity-3 = ""
 ramp-capacity-4 = ""
 ramp-capacity-5 = ""
 
@@ -131,32 +136,38 @@ interval = 3
 format = <label> 
 label = RAM %percentage_used%
 
-[module/empty]
+
+[module/bspwm]
+type = internal/bspwm
+
+format = <label-state> <label-mode>
+
+
+label-active = " %name% "
+label-active-background = ${colors.blue}
+label-active-foreground = ${colors.black}
+
+label-occupied = " %name% "
+label-empty = 
+
+label-urgent = U
+label-urgent-background = ${colors.yellow}
+label-urgent-foreground = ${colors.black}
+
+;label-focused = F
+label-padding = 1
+
+
+[module/xmonad-log]
 type = custom/script
+exec = xmonad-log
+
+tail = true
 
 
-; === Appearance ===
+
+
+; === Color Definitions ===
 
 [colors]
-; Nord Color Scheme 
-fg        = #ebdbb2
-bg        = #282828
-bg1       = #3c3836
-bg2       = #504945
-bg3       = #665c54
-bg4       = #7c6f64
-; 8 normal colors
-black     = #282C34
-red       = #bf616a
-green     = #a3be8c
-yellow    = #ebcb8b
-blue      = #81a1c1
-cyan      = #88c0d0
-white     = #e5e9f0
-
-; bright
-gray          = #4c566a
-light-red     = #bf616a
-light-green   = #a3be8c
-light-yellow  = #cc241d
-light-purple  = #d3869b 
+include-file = ~/dotfiles/colors.ini

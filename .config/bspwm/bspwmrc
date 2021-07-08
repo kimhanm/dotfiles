@@ -1,0 +1,26 @@
+#! /bin/sh
+
+# Autostart
+xrdb ~/.Xresources                    # Xresources
+pgrep -x sxhkd > /dev/null || sxhkd & # hotkey daemon
+nitrogen --restore &                  # bg image
+killall picom; picom &                # compositor
+killall clipmenud; clipmenud &        # clipboard menu
+~/.config/polybar/launch.sh &         # status bar
+dust &                                # notification daemon
+
+# Setup
+bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+
+bspc config border_width         4
+bspc config window_gap          16
+
+bspc config split_ratio          0.5
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+
+# Window rules
+#bspc rule -a Pulseaudio state=floating
+#bspc rule -a zathura state=tile
+

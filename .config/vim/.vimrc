@@ -7,6 +7,8 @@ set viminfo+=n$HOME/.config/vim/.viminfo
 filetype plugin indent on
 syntax on
 
+set mouse=a
+
 " Behaviour
 set tabstop=2
 set shiftwidth=2

@@ -6,6 +6,7 @@ Plug 'lervag/vimtex'
 Plug 'tasn/vim-tsx'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'derekelkins/agda-vim'
+Plug 'joshdick/onedark.vim'
 call plug#end()
 
 " vimtex

@@ -4,7 +4,7 @@ Plug 'preservim/nerdtree'
 Plug 'SirVer/ultisnips'
 Plug 'lervag/vimtex'
 Plug 'tasn/vim-tsx'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'derekelkins/agda-vim'
 call plug#end()
 
@@ -29,6 +29,9 @@ let g:vimtex_view_general_options_latexmk = '-reuse-instance'
 " UltiSnips
 let g:UltiSnipsSnippetDirectories=[expand('$HOME/dotfiles/.config/vim/UltiSnips')]
 
+
+" Coc
+let g:coc_disable_startup_warning = 1
 
 
 

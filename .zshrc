@@ -12,6 +12,10 @@ compinit
 PROMPT='[%F{yellow}%n%f@%F{cyan}%m%f %F{blue}%B%~%b%f] %# '
 
 
+# Autostart X at login
+#if [-z "${DISPLAY}" ] && [ "${tty}" = "/dev/tty1" ]; then
+  #exec startx
+#fi
 
 # Coloured output
 export LS_COLORS="di=1;34"
@@ -35,8 +39,8 @@ export INFOPATH"=/usr/local/share/texlive/2021/texmf/doc/info:$INFOPATH"
 
 
 #  fzf
+[ -f /usr/share/zsh/vendor-completions/_fzf ] && source /usr/share/zsh/vendor-completions/_fzf
 [ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
-[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
 
 
 export FZF_DEFAULT_OPTS="
@@ -44,17 +48,17 @@ export FZF_DEFAULT_OPTS="
   --bind '?:toggle-preview'
 "
 
-export FZF_BASE_COMMAND='fd -I -H --ignore-file /usr/share/fzf/fzfignore'
+export FZF_BASE_COMMAND='fdfind -I -H --ignore-file /usr/share/fzf/fzfignore'
 export FZF_DEFAULT_COMMAND="$FZF_BASE_COMMAND -t f -t l"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="$FZF_BASE_COMMAND -t d"
 
 __fzf_compgen_path() {
-  fd -H . "$1"
+  fdfind -H . "$1"
 }
 
 __fzf_compgen_dir() {
-  fd --type d -H . "$1"
+  fdfind --type d -H . "$1"
 }
 
 vim-fzf-widget() {
@@ -63,6 +67,7 @@ vim-fzf-widget() {
 }
 zle     -N    vim-fzf-widget
 bindkey "^[e" vim-fzf-widget
+bindkey "å" vim-fzf-widget
 
 xdg-fzf-widget() {
   files=$(eval $FZF_CTRL_T_COMMAND | fzf) && xdg-open $files & disown
@@ -70,5 +75,6 @@ xdg-fzf-widget() {
 }
 zle     -N    xdg-fzf-widget
 bindkey "^[x" xdg-fzf-widget
+bindkey "ø" xdg-fzf-widget
 
 

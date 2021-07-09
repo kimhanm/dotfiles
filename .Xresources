@@ -1,0 +1,7 @@
+Xft.dpi:            160
+
+xterm*faceName:     Monospace
+xterm*faceSize:     14
+! xterm*font:         *-fixed-*-*-*-20-*
+xterm*background:   #282c34
+xterm*foreground:   #d8dee9

@@ -4,4 +4,4 @@ xterm*faceName:     Monospace
 xterm*faceSize:     14
 ! xterm*font:         *-fixed-*-*-*-20-*
 xterm*background:   #282c34
-xterm*foreground:   #d8dee9
+xterm*foreground:   #e5e9f0

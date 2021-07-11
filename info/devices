@@ -1,0 +1,59 @@
+I: Bus=0003 Vendor=045e Product=0800 Version=0111
+N: Name="Microsoft Microsoft® Nano Transceiver v2.0"
+P: Phys=usb-3f980000.usb-1.1.3/input0
+S: Sysfs=/devices/platform/soc/3f980000.usb/usb1/1-1/1-1.1/1-1.1.3/1-1.1.3:1.0/0003:045E:0800.0001/input/input0
+U: Uniq=
+H: Handlers=sysrq kbd leds event0 
+B: PROP=0
+B: EV=120013
+B: KEY=10000 7 ff800000 7ff febeffdf f3cfffff ffffffff fffffffe
+B: MSC=10
+B: LED=7
+
+I: Bus=0003 Vendor=045e Product=0800 Version=0111
+N: Name="Microsoft Microsoft® Nano Transceiver v2.0 Mouse"
+P: Phys=usb-3f980000.usb-1.1.3/input1
+S: Sysfs=/devices/platform/soc/3f980000.usb/usb1/1-1/1-1.1/1-1.1.3/1-1.1.3:1.1/0003:045E:0800.0002/input/input1
+U: Uniq=
+H: Handlers=mouse0 event1 
+B: PROP=0
+B: EV=17
+B: KEY=1f0000 0 0 0 0 0 0 0 0
+B: REL=1943
+B: MSC=10
+
+I: Bus=0003 Vendor=045e Product=0800 Version=0111
+N: Name="Microsoft Microsoft® Nano Transceiver v2.0 Consumer Control"
+P: Phys=usb-3f980000.usb-1.1.3/input1
+S: Sysfs=/devices/platform/soc/3f980000.usb/usb1/1-1/1-1.1/1-1.1.3/1-1.1.3:1.1/0003:045E:0800.0002/input/input2
+U: Uniq=
+H: Handlers=event2 
+B: PROP=0
+B: EV=5
+B: REL=1040
+
+I: Bus=0003 Vendor=045e Product=0800 Version=0111
+N: Name="Microsoft Microsoft® Nano Transceiver v2.0 Consumer Control"
+P: Phys=usb-3f980000.usb-1.1.3/input2
+S: Sysfs=/devices/platform/soc/3f980000.usb/usb1/1-1/1-1.1/1-1.1.3/1-1.1.3:1.2/0003:045E:0800.0003/input/input3
+U: Uniq=
+H: Handlers=sysrq kbd event3 
+B: PROP=0
+B: EV=10001f
+B: KEY=3f 301ff 0 0 0 0 483ffff 17aff32d bfd44446 0 0 1 130ff3 8b17c007 ffff7bfa d9415fff ffbeffdf ffefffff ffffffff fffffffe
+B: REL=1040
+B: ABS=1 0
+B: MSC=10
+
+I: Bus=0003 Vendor=045e Product=0800 Version=0111
+N: Name="Microsoft Microsoft® Nano Transceiver v2.0 System Control"
+P: Phys=usb-3f980000.usb-1.1.3/input2
+S: Sysfs=/devices/platform/soc/3f980000.usb/usb1/1-1/1-1.1/1-1.1.3/1-1.1.3:1.2/0003:045E:0800.0003/input/input5
+U: Uniq=
+H: Handlers=kbd event4 
+B: PROP=0
+B: EV=1b
+B: KEY=400000 1000000 12 0 0 0 8 0 4000 10cc00 101680 0 0 0
+B: ABS=100 0
+B: MSC=10
+

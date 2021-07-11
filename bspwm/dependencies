@@ -1,8 +1,8 @@
 Terminal Emulator: alacritty
 bg image setter: nitrogen
 Compositor: picom
-Clipboard: clipmenud, dmenu
+Clipboard: clipmenu, dmenu
 Statusbar: polybar
-Notifications: dust
+Notifications: dunst
 Brightness: lux (AUR)
 Screenshot: escrotum (AUR)

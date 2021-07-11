@@ -50,8 +50,8 @@ XF86Audio{Mute,LowerVolume,RaiseVolume}
   amixer -q sset Master {toggle,4%-,4%+}
 
 # screenshot
-super + shift + s
-  escrotum -s -C
+super + {_,alt + }shift + s
+  escrotum -s {-C,~/Pictures/escrotum-%Y-%m-%d-%H%M%S.png}
 
 
 #################

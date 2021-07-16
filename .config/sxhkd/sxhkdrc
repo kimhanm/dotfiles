@@ -31,8 +31,8 @@ super + alt + b
   polybar-msg cmd toggle
 
 # web browser
-super + w
-  vivaldi-stable
+super + {_,shift + }w
+  {vivaldi-stable,brave-beta}
 
 # reload sxkhd config
 super + p
@@ -111,6 +111,9 @@ super + {_,shift + }Tab
 	bspc desktop -f {prev,next}.local
 
 # focus last node/desktop
+{alt,super} + grave
+	bspc {node,desktop} -f last
+# alternative for ch keymap
 {alt,super} + section
 	bspc {node,desktop} -f last
 
@@ -148,12 +151,12 @@ super + ctrl + shift + space
 
 # expand window 
 super + alt + {h,j,k,l}
-	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+	bspc node -z {left -48 0,bottom 0 48,top 0 -48,right 48 0}
 
 # shrink window 
 super + alt + shift + {h,j,k,l}
-	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+	bspc node -z {right -48 0,top 0 48,bottom 0 -48,left 48 0}
 
 # move floating window
 super + {Left,Down,Up,Right}
-	bspc node -v {-20 0,0 20,0 -20,20 0}
+	bspc node -v {-48 0,0 48,0 -48,48 0}

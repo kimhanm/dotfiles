@@ -9,5 +9,6 @@
 Cache
 .cache
 .cargo
+.conan
 .git
 .local

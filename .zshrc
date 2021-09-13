@@ -9,7 +9,7 @@ zstyle :compinstall filename '/home/hk/.zshrc'
 
 autoload -Uz compinit
 compinit
-PROMPT='[%F{yellow}%n%f@%F{cyan}%m%f %F{blue}%B%~%b%f] %# '
+PROMPT='[%F{yellow}%n%f@%F{cyan}%m%f %F{blue}%B%1~%b%f] $ '
 
 
 

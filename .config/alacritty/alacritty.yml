@@ -15,7 +15,16 @@ key_bindings:
 # Appearance
 #   Opacity
 #background_opacity: 0.3
-background_opacity: 0.9
+background_opacity: 0.90
+# Font
+font:
+  normal:
+    family: DejaVuSansMono Nerd Font
+    style: Regular
+  bold:
+    family: DejaVuSansMono Nerd Font
+    style: Bold
+  size: 15
 #   Color Schemes
 schemes:
   blue-mountains: &blue-mountains

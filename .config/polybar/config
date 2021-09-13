@@ -19,16 +19,15 @@ enable-ipc = true
 wm-restack = bspwm
 
 
-
 ;; Appearance
 font-0 = "DejaVuSansMono Nerd Font:size=28;8"
 background = ${colors.black}
 foreground = ${colors.white}
 
 ;; Modules
-modules-left = bspwm stalonetray
+modules-left = bspwm stalonetray xwindow
 modules-center = date
-modules-right = network pulseaudio battery
+modules-right = temp network pulseaudio battery
 
 
 
@@ -56,6 +55,47 @@ font-0 = "DejaVuSansMono Nerd Font:size=28;8"
 
 ; === Modules ===
 
+[module/bspwm]
+type = internal/bspwm
+
+format = <label-state> <label-mode>
+
+
+label-active = " %name% "
+label-active-background = ${colors.blue}
+label-active-foreground = ${colors.black}
+
+label-occupied = " %name% "
+label-empty = 
+
+label-urgent = U
+label-urgent-background = ${colors.yellow}
+label-urgent-foreground = ${colors.black}
+
+;label-focused = F
+label-padding = 1
+
+
+[module/xmonad-log]
+type = custom/script
+exec = xmonad-log
+
+tail = true
+
+
+[module/stalonetray]
+type = custom/script
+exec = echo "  "
+format = <label>
+click-left = exec traycollapse
+
+
+[module/xwindow]
+type = internal/xwindow
+format = <label>
+label = %title%
+label-maxlen = 30
+
 [module/date]
 type = internal/date
 interval = 1
@@ -67,33 +107,11 @@ time      = %H:%M:%S
 time-alt  = %H:%M:%S
 label     = %date% %time%
 
-
-
-[module/stalonetray]
+[module/temp]
 type = custom/script
-exec = echo "  "
-format = <label>
-click-left = exec traycollapse
+interval = 2
 
-[module/battery]
-type = internal/battery
-
-battery = BAT1
-adapter = ADP1
-poll-interval = 10
-
-format-charging = <label-charging>
-label-charging  = " %percentage%%"
-format-discharging  = "<ramp-capacity>  <label-discharging>"
-label-discharging   = %percentage%%
-label-full = " %percentage%%"
-
-ramp-capacity-0 = ""
-ramp-capacity-1 = ""
-ramp-capacity-2 = ""
-ramp-capacity-3 = ""
-ramp-capacity-4 = ""
-ramp-capacity-5 = ""
+exec = sensors | awk '/^Package/{ gsub("+",""); print $4}'
 
 
 [module/network]
@@ -124,6 +142,30 @@ ramp-volume-1 = ""
 ramp-volume-2 = "墳"
 ramp-volume-3 = ""
 
+[module/battery]
+type = internal/battery
+
+; ls /sys/class/power_supply
+battery = BAT1
+adapter = ADP1
+poll-interval = 10
+
+format-charging = <label-charging>
+label-charging  = " %percentage%%"
+format-discharging  = "<ramp-capacity>  <label-discharging>"
+label-discharging   = %percentage%%
+label-full = " %percentage%%"
+
+ramp-capacity-0 = ""
+ramp-capacity-1 = ""
+ramp-capacity-2 = ""
+ramp-capacity-3 = ""
+ramp-capacity-4 = ""
+ramp-capacity-5 = ""
+
+
+
+
 [module/cpu]
 type      = internal/cpu
 interval  = 1
@@ -137,32 +179,6 @@ format = <label>
 label = RAM %percentage_used%
 
 
-[module/bspwm]
-type = internal/bspwm
-
-format = <label-state> <label-mode>
-
-
-label-active = " %name% "
-label-active-background = ${colors.blue}
-label-active-foreground = ${colors.black}
-
-label-occupied = " %name% "
-label-empty = 
-
-label-urgent = U
-label-urgent-background = ${colors.yellow}
-label-urgent-foreground = ${colors.black}
-
-;label-focused = F
-label-padding = 1
-
-
-[module/xmonad-log]
-type = custom/script
-exec = xmonad-log
-
-tail = true
 
 
 

@@ -24,7 +24,7 @@ alias mkdir="mkdir -p"
 
 alias grep="grep --color=auto"
 
-alias rm="rm -i"
+alias rm="rm -iv"
 alias cp="cp -i"
 alias mv="mv -i"
 
@@ -48,10 +48,13 @@ alias duc="vim ~/.config/dunst/dunstrc"
 
 # Directory Shortcuts
 alias cdr="cd /"
-alias dow="cd ~/Downloads"
+alias dow="cd ~/downloads"
 
 # Command Shortcuts
 alias rmswp="rm ~/.local/share/nvim/swap/*"
 alias smci="sudo make clean install"
-alias gpom="git push origin master"
+alias gpom="git push origin main"
 alias manpy="python manage.py"
+
+
+alias magyar="deepl translate -t 'HU' "

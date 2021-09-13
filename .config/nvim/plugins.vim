@@ -1,12 +1,13 @@
 call plug#begin('$HOME/.config/vim/plugged')
-Plug 'justinmk/vim-sneak'
+"Plug 'justinmk/vim-sneak'
 Plug 'preservim/nerdtree'
 Plug 'SirVer/ultisnips'
 Plug 'lervag/vimtex'
 Plug 'tasn/vim-tsx'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'derekelkins/agda-vim'
 Plug 'joshdick/onedark.vim'
+Plug 'junegunn/goyo.vim'
 call plug#end()
 
 " vimtex

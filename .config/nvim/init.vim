@@ -1,4 +1,6 @@
-set runtimepath^=$HOME/.config/vim runtimepath+=$HOME/.config/vim/after
+set runtimepath^=$HOME/.config/vim 
+set runtimepath+=$HOME/.config/vim/after 
+"set runtimepath+=$HOME/.config/nvim/autoload
 let &packpath = &runtimepath
 source $HOME/.config/vim/.vimrc
 source $HOME/.config/nvim/plugins.vim

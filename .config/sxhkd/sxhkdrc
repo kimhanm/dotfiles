@@ -11,16 +11,24 @@ super + shift + Return
   emacs
 
 # program launcher
-super + {shift + ,_}d
-	{dmenu_run,rofi -show drun}
+super + {_,shift + }d
+	{rofi -show drun,dmenu_run}
+
+# file searcher
+super + alt + d
+  rofi -show find -modi find:~/.local/share/rofi/finder.sh
 
 # file manager
-super + {shift + ,_}e
+super + {_,shift + }e
   {alacritty -e ranger,rofi -show file-browser}
 
 # clipboard menu
 super + c
   clipmenu
+
+# manual menu
+#super + alt + m
+  #manmenu
 
 # toggle compositor
 super + alt + c
@@ -51,7 +59,7 @@ XF86Audio{Mute,LowerVolume,RaiseVolume}
 
 # screenshot
 super + {_,alt + }shift + s
-  escrotum -s {-C,~/Pictures/escrotum-%Y-%m-%d-%H%M%S.png}
+  {escrotum -s -C,spectacle -rg}
 
 
 #################
@@ -103,18 +111,21 @@ super + {p,b,comma,period}
 	bspc node -f @{parent,brother,first,second}
 
 # cycle windows in current desktop
-alt + {_,shift + }Tab
+alt + {_,shift + }grave
 	bspc node -f {next,prev}.local.!hidden.window
 
-# cycle desktops in current monitor
-super + {_,shift + }Tab
-	bspc desktop -f {prev,next}.local
+# cycle occupied desktops 
+super + {_,shift + }grave
+	bspc desktop -f {next,prev}.occupied
+
+# backup for ch keymap
+alt + {_,shift + }section
+	bspc node -f {next,prev}.local.!hidden.window
+super + {_,shift + }section
+	bspc desktop -f {next,prev}.occupied
 
 # focus last node/desktop
-{alt,super} + grave
-	bspc {node,desktop} -f last
-# alternative for ch keymap
-{alt,super} + section
+{alt,super} + Tab
 	bspc {node,desktop} -f last
 
 # focus the older or newer node in the focus history
